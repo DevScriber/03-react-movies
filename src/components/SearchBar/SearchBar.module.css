@@ -40,6 +40,13 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     width: 240px;
+    outline: none;
+    transition: border .2s ease;
+}
+
+.input:hover,
+.input:focus {
+    border-color: #0a66c2;
 }
 
 .button {
@@ -50,6 +57,7 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color .2s ease;
 }
 
 .button:hover {

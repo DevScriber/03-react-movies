@@ -13,9 +13,9 @@ An interactive movie search application built with React and TypeScript. This pr
 
 ## 🛠 Tech Stack
 
-* **React 19** (Functional Components, Hooks, Form Actions)
-* **TypeScript** (strict typing for API data and component props)
-* **Vite** (fast project bundling and HMR)
+* **React 19** [![My Skills](https://skillicons.dev/icons?i=react&theme=light)](https://skillicons.dev) (Functional Components, Hooks, Form Actions)
+* **TypeScript** [![My Skills](https://skillicons.dev/icons?i=ts&theme=light)](https://skillicons.dev) (strict typing for API data and component props)
+* **Vite** [![My Skills](https://skillicons.dev/icons?i=vite&theme=light)](https://skillicons.dev) (fast project bundling and HMR)
 * **CSS Modules** (component-level style isolation)
 * **React Hot Toast** (dynamic toast notifications)
 * **Axios** (promise-based API requests)
