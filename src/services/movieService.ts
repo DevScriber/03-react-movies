@@ -7,11 +7,13 @@ interface MovieHttpResponse {
 
 export default async function FetchMovies(query: string) {
     const myKey = import.meta.env.VITE_TMDB_TOKEN;
-    const url = `https://api.themoviedb.org/3/search/movie?query=${query}`;
+    const url = `https://api.themoviedb.org/3/search/movie`;
 
     const options = {
         params: {
-            // твої параметри
+            query,
+            language: 'en-US',
+            page: 1
         },
         headers: {
             Authorization: `Bearer ${myKey}`,
