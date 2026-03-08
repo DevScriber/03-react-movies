@@ -1,32 +1,26 @@
-import type { IMovie } from './../types/movie';
-import axios from "axios"
+import type { Movie } from './../types/movie';
+import axios from 'axios';
 
 interface MovieHttpResponse {
-    results: IMovie[]
+  results: Movie[];
 }
 
-export default async function FetchMovies(query: string) {
-    const myKey = import.meta.env.VITE_TMDB_TOKEN;
-    const url = `https://api.themoviedb.org/3/search/movie`;
+export default async function fetchMovies(query: string): Promise<Movie[]> {
+  const myKey = import.meta.env.VITE_TMDB_TOKEN;
+  const url = `https://api.themoviedb.org/3/search/movie`;
 
-    const options = {
-        params: {
-            query,
-            language: 'en-US',
-            page: 1
-        },
-        headers: {
-            Authorization: `Bearer ${myKey}`,
-        }
-    };
+  const options = {
+    params: {
+      query,
+      language: 'en-US',
+      page: 1,
+    },
+    headers: {
+      Authorization: `Bearer ${myKey}`,
+    },
+  };
 
-    const response = await axios.get<MovieHttpResponse>(url, options);
+  const response = await axios.get<MovieHttpResponse>(url, options);
 
-    return (
-        response.data
-    )
-
-
-
-
+  return response.data.results;
 }

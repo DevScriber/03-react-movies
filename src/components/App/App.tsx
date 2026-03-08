@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SearchBar from "../SearchBar/SearchBar"
-import FetchMovies from "../../services/movieService";
-import type { IMovie } from "../../types/movie";
+import fetchMovies from "../../services/movieService";
+import type { Movie } from "../../types/movie";
 import toast, { Toaster } from "react-hot-toast";
 import MovieGrid from "../MovieGrid/MovieGrid";
 import Loader from "../Loader/Loader";
@@ -12,12 +12,12 @@ const notify = () => toast.error('No movies found for your request.')
 
 export default function App() {
 
-  const [movies, setMovies] = useState<IMovie[]>([])
+  const [movies, setMovies] = useState<Movie[]>([])
   const [isLoading, setLoading] = useState(false)
   const [isError, setError] = useState(false)
-  const [isModalOpen, setIsModalOpen] = useState<IMovie | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState<Movie | null>(null)
 
-  const openModal = (movie: IMovie) => setIsModalOpen(movie)
+  const openModal = (movie: Movie) => setIsModalOpen(movie)
   const closeModal = () => setIsModalOpen(null)
 
 
@@ -29,18 +29,18 @@ export default function App() {
       setError(false)
       setLoading(true)
 
-      const data = await FetchMovies(queryMovie)
+      const data = await fetchMovies(queryMovie)
 
       // Задержка, чтоб Loader отображался 1 секунду
 
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      if (data.results.length === 0) {
+      if (data.length === 0) {
         notify()
         return
       }
 
-      setMovies(data.results)
+      setMovies(data)
 
     } catch {
       setError(true)
