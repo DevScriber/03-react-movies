@@ -1,12 +1,12 @@
 import { useState } from "react";
-import SearchBar from "./components/SearchBar/SearchBar"
-import FetchMovies from "./services/movieService";
-import type { IMovie } from "./types/movie";
+import SearchBar from "../SearchBar/SearchBar"
+import FetchMovies from "../../services/movieService";
+import type { IMovie } from "../../types/movie";
 import toast, { Toaster } from "react-hot-toast";
-import MovieGrid from "./components/MovieGrid/MovieGrid";
-import Loader from "./components/Loader/Loader";
-import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
-import MovieModal from "./components/MovieModal/MovieModal";
+import MovieGrid from "../MovieGrid/MovieGrid";
+import Loader from "../Loader/Loader";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import MovieModal from "../MovieModal/MovieModal";
 
 const notify = () => toast.error('No movies found for your request.')
 
